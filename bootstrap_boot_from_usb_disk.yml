@@ -1,4 +1,5 @@
-- hosts: all
+- name: Boot from USB disk
+  hosts: all
   tasks:
     - name: Install parted package
       ansible.builtin.apt:
