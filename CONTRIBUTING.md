@@ -21,7 +21,7 @@ We encourage all kinds of contributions, from bug reports to feature requests an
 
 ## Reporting Bugs
 
-Before reporting a bug, please check the existing issues on [GitHub Issues](https://github.com/escalate/ansible-gitops-example-repository/issues?q=label%3Abug) to avoid duplicates. If your issue is not listed, you can report it via [GitHub Issues](https://github.com/escalate/ansible-gitops-example-repository/issues/new). A good bug report should include:
+Before reporting a bug, please check the existing issues on [GitHub Issues](https://github.com/escalate/my-homelab/issues?q=label%3Abug) to avoid duplicates. If your issue is not listed, you can report it via [GitHub Issues](https://github.com/escalate/my-homelab/issues/new). A good bug report should include:
 
 - Clear steps to reproduce the issue
 - Expected vs. actual behavior
@@ -30,7 +30,7 @@ Before reporting a bug, please check the existing issues on [GitHub Issues](http
 
 ## Suggesting Enhancements
 
-Before suggesting an enhancement, please check the existing issues on [GitHub Issues](https://github.com/escalate/ansible-gitops-example-repository/issues?q=label%3Aenhancement) to avoid duplicates. If your suggestion is not listed, enhancement suggestions should also be submitted through [GitHub Issues](https://github.com/escalate/ansible-gitops-example-repository/issues/new) and should include:
+Before suggesting an enhancement, please check the existing issues on [GitHub Issues](https://github.com/escalate/my-homelab/issues?q=label%3Aenhancement) to avoid duplicates. If your suggestion is not listed, enhancement suggestions should also be submitted through [GitHub Issues](https://github.com/escalate/my-homelab/issues/new) and should include:
 
 - A clear and descriptive title
 - A detailed explanation of the suggested enhancement
@@ -60,7 +60,7 @@ Allowed types: `feat`, `fix`, `build`, `chore`, `ci`, `docs`, `style`, `refactor
 
 ## Testing
 
-All tests must pass before submitting any changes. The test suite runs via [GitHub Actions](https://github.com/escalate/ansible-gitops-example-repository/actions), and contributions will not be merged unless all tests are successful.
+All tests must pass before submitting any changes. The test suite runs via [GitHub Actions](https://github.com/escalate/my-homelab/actions), and contributions will not be merged unless all tests are successful.
 
 - Test suite is located in the [.github/workflows/test.yml](.github/workflows/test.yml) file.
 - Add suitable tests for any new functionality or changes.
