@@ -162,7 +162,7 @@
 
     - name: Activate SSHD on boot
       ansible.builtin.file:
-        path: /boot/ssh
+        path: /boot/ssh.txt
         state: touch
         owner: root
         group: root
