@@ -105,7 +105,7 @@
         name: Ansible GitOps bootstrap
         special_time: reboot
         user: root
-        job: "sleep 60 && export $(cat /boot/gitops-bootstrap.env | xargs) && /boot/gitops-install-and-configure-ansible.sh 2>&1 | logger --tag ansible-bootstrap"
+        job: "sleep 60 && export $(cat /boot/firmware/gitops-bootstrap.env | xargs) && /boot/firmware/gitops-install-and-configure-ansible.sh 2>&1 | logger --tag ansible-bootstrap"
         cron_file: /mnt/usbdisk/etc/crontab
 
     - name: Create Ansible GitOps deployment cron job
