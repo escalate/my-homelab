@@ -2,7 +2,7 @@
 
 # My Homelab
 
-## Create custom Raspberry Pi OS disk os
+## Create custom Raspberry Pi OS disk image
 
 Tool: https://github.com/escalate/ansible-gitops-raspberry-pi-os-custom-disk-image
 
@@ -13,11 +13,11 @@ export ANSIBLE_VAULT_PASSWORD='REDACTED'
 make build-64bit
 ```
 
-### Flash custom Raspberry Pi OS image on SD Card
+### Flash custom Raspberry Pi OS disk image on SD Card
 
-- Open balenaEtcher tool
-- Click "Flash from file" button
-- Select YYYY-MM-DD-raspios-bookworm-arm64-lite.img
+- Open [balenaEtcher](https://etcher.balena.io/) tool
+- Click `Flash from file` button
+- Select `output.img`
 - Select SD Card as target
-- Click "Flash!" button
+- Click `Flash!"` button
 - Close balenaEtcher tool
