@@ -1,4 +1,4 @@
-- hosts: gitops
+- hosts: all
   tasks:
     - name: Install parted package
       ansible.builtin.apt:
