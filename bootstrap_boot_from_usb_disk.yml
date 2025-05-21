@@ -167,3 +167,11 @@
         owner: root
         group: root
         mode: "0755"
+
+    - name: Add default user pi with password raspberry
+      ansible.builtin.copy:
+        content: "pi:$6$MVEGdHTqed7c7za0$ESdhSXBIjSTVWKY7YWBII3UjQM6LhFur1alIXWJ9/Hf4mxgZqIuyX1yEsVf/qct4/sT0NStmvIPZs5de3SNNy0"
+        dest: /boot/userconf.txt
+        owner: root
+        group: root
+        mode: "0755"
