@@ -99,6 +99,9 @@
         src: /etc/hostname
         dest: /mnt/usbdisk/etc/hostname
         remote_src: true
+        owner: root
+        group: root
+        mode: "0644"
 
     - name: Create Ansible GitOps boostrap cron job
       ansible.builtin.cron:
