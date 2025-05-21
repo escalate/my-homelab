@@ -47,10 +47,9 @@
       register: raspberry_pi_os_image_archive
 
     - name: Unarchive Raspberry Pi OS image archive
-      ansible.builtin.unarchive:
-        src: "{{ raspberry_pi_os_image_archive.files[0].path }}"
-        dest: /var/tmp
-        remote_src: true
+      ansible.builtin.command:
+        cmd: "xz --decompress {{ raspberry_pi_os_image_archive.files[0].path }}"
+      changed_when: false
 
     - name: Get Raspberry Pi OS image file
       ansible.builtin.find:
