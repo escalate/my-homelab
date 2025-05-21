@@ -1,4 +1,4 @@
-- hosts: homelab
+- hosts: gitops
   tasks:
     - name: Install parted package
       ansible.builtin.apt:
