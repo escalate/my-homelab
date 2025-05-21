@@ -20,4 +20,3 @@ make build-64bit
 - Select `output.img`
 - Select SD Card as target
 - Click `Flash!"` button
-- Close balenaEtcher tool
