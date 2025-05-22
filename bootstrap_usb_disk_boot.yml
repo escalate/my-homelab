@@ -125,11 +125,11 @@
       ansible.builtin.setup:
         gather_subset: all
 
-    - name: Configure boot partition
+    - name: Configure boot/firmware partition
       ansible.posix.mount:
         state: present
         src: "UUID={{ ansible_facts.devices['mmcblk0'].partitions['mmcblk0p1'].uuid }}"
-        path: /boot
+        path: /boot/firmware
         fstype: vfat
         opts: defaults
         dump: 0
