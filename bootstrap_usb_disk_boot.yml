@@ -1,4 +1,4 @@
-- name: Boot from USB disk
+- name: Bootstrap and switch to USB disk boot
   hosts: all
   tasks:
     - name: Install parted package

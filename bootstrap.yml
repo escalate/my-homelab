@@ -1,2 +1,2 @@
-- name: Include Bootstrap from USB disk
-  ansible.builtin.import_playbook: bootstrap_boot_from_usb_disk.yml
+- name: Import Bootstrap USB disk boot
+  ansible.builtin.import_playbook: bootstrap_usb_disk_boot.yml

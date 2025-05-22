@@ -1,2 +1,2 @@
-- name: Include Homelab
+- name: Import Homelab
   ansible.builtin.import_playbook: homelab.yml
