@@ -208,6 +208,3 @@
         owner: root
         group: root
         mode: "0755"
-
-    - name: Reboot the system
-      ansible.builtin.reboot:
