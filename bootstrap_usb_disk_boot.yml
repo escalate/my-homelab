@@ -1,7 +1,5 @@
 - name: Bootstrap and switch to USB disk boot
   hosts: all
-  vars:
-    gitops_repository: https://github.com/escalate/my-homelab.git
   tasks:
     - name: Install parted package
       ansible.builtin.apt:
@@ -96,29 +94,60 @@
         cmd: losetup --detach-all
       changed_when: false
 
-    - name: Adopt current hostname
+    - name: Adopt current hostname file
       ansible.builtin.copy:
         src: /etc/hostname
         dest: /mnt/usbdisk/etc/hostname
         remote_src: true
         owner: root
         group: root
-        mode: "0644"
+        mode: preserve
 
-    - name: Create Ansible GitOps boostrap cron job
-      ansible.builtin.cron:
-        name: Ansible GitOps bootstrap
-        special_time: reboot
-        user: root
-        job: "sleep 60 && export $(cat /boot/firmware/gitops-bootstrap.env | xargs) && /boot/firmware/gitops-install-and-configure-ansible.sh 2>&1 | logger --tag ansible-bootstrap"
-        cron_file: /mnt/usbdisk/etc/crontab
+    - name: Adopt current hosts file
+      ansible.builtin.copy:
+        src: /etc/hosts
+        dest: /mnt/usbdisk/etc/hosts
+        remote_src: true
+        owner: root
+        group: root
+        mode: preserve
+
+    - name: Adopt current GitOps scripts
+      ansible.builtin.copy:
+        src: "/usr/local/bin/{{ item }}"
+        dest: "/mnt/usbdisk/usr/local/bin/{{ item }}"
+        remote_src: true
+        owner: root
+        group: root
+        mode: preserve
+      loop:
+        - gitops-install-and-configure-ansible.sh
+        - gitops-run-ansible-bootstrap-playbook.sh
+        - gitops-run-ansible-site-playbook.sh
+
+    - name: Adopt current Ansible GitOps boostrap systemd service
+      ansible.builtin.copy:
+        src: /etc/systemd/system/gitops-bootstrap.service
+        dest: /mnt/usbdisk/etc/systemd/system/gitops-bootstrap.service
+        remote_src: true
+        owner: root
+        group: root
+        mode: preserve
+
+    - name: Enable adopted Ansible GitOps boostrap systemd service on boot
+      ansible.builtin.file:
+        src: /etc/systemd/system/gitops-bootstrap.service
+        dest: /mnt/usbdisk/etc/systemd/system/multi-user.target.wants/gitops-bootstrap.service
+        state: link
+        owner: root
+        group: root
 
     - name: Create Ansible GitOps deployment cron job
       ansible.builtin.cron:
         name: Ansible GitOps deployment
         minute: "*/10"
         user: root
-        job: "ansible-pull --url={{ gitops_repository }} --directory=/etc/gitops --inventory=/etc/ansible/hosts.yml --only-if-changed --track-subs site.yml 2>&1 | logger --tag ansible-deployment"
+        job: /usr/local/bin/gitops-run-ansible-site-playbook.sh
         cron_file: /mnt/usbdisk/etc/crontab
 
     - name: Regather facts
@@ -158,7 +187,6 @@
       changed_when: false
       register: usbdisk_partuuid
 
-    # Using PARTUUID of USB disk because with UUID the system does not boot
     - name: Switch to USB disk root partition
       ansible.builtin.replace:
         path: /boot/firmware/cmdline.txt
@@ -180,3 +208,6 @@
         owner: root
         group: root
         mode: "0755"
+
+    - name: Reboot the system
+      ansible.builtin.reboot:
