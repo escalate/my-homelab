@@ -122,7 +122,6 @@
         mode: preserve
       loop:
         - gitops-install-and-configure-ansible.sh
-        - gitops-run-ansible-bootstrap-playbook.sh
         - gitops-run-ansible-site-playbook.sh
 
     - name: Adopt current Ansible GitOps boostrap systemd service
