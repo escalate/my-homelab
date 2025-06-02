@@ -124,6 +124,7 @@
         - gitops-bootstrap.sh
         - gitops-deployment.sh
         - gitops-preparation.sh
+        - gitops-utils.sh
 
     - name: Adopt current Ansible GitOps boostrap systemd service
       ansible.builtin.copy:
