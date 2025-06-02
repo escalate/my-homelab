@@ -121,8 +121,9 @@
         group: root
         mode: preserve
       loop:
-        - gitops-install-and-configure-ansible.sh
-        - gitops-run-ansible-site-playbook.sh
+        - gitops-bootstrap.sh
+        - gitops-deployment.sh
+        - gitops-preparation.sh
 
     - name: Adopt current Ansible GitOps boostrap systemd service
       ansible.builtin.copy:
@@ -141,12 +142,17 @@
         owner: root
         group: root
 
+    - name: Remove maker file from GitOps preparation script
+      ansible.builtin.file:
+        path: /boot/firmware/gitops-preparation.done
+        state: absent
+
     - name: Create Ansible GitOps deployment cron job
       ansible.builtin.cron:
         name: Ansible GitOps deployment
         minute: "*/10"
         user: root
-        job: /usr/local/bin/gitops-run-ansible-site-playbook.sh
+        job: /usr/local/bin/gitops-deployment.sh
         cron_file: /mnt/usbdisk/etc/crontab
 
     - name: Regather facts
