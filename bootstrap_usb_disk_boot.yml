@@ -122,8 +122,8 @@
         mode: preserve
       loop:
         - gitops-bootstrap.sh
-        - gitops-deployment.sh
         - gitops-preparation.sh
+        - gitops-rollout.sh
         - gitops-utils.sh
 
     - name: Adopt current Ansible GitOps boostrap systemd service
@@ -153,7 +153,7 @@
         name: Ansible GitOps deployment
         minute: "*/10"
         user: root
-        job: /usr/local/bin/gitops-deployment.sh
+        job: /usr/local/bin/gitops-rollout.sh
         cron_file: /mnt/usbdisk/etc/crontab
 
     - name: Regather facts
