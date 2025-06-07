@@ -1,5 +1,5 @@
-- name: Homelab
-  hosts: all
+- name: Raspberry Pi 3
+  hosts: pi3
   tasks:
     - name: Gather facts
       ansible.builtin.setup:
