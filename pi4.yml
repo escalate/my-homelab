@@ -1,0 +1,6 @@
+- name: Raspberry Pi 4
+  hosts: pi4
+  tasks:
+    - name: Gather facts
+      ansible.builtin.setup:
+        gather_subset: all

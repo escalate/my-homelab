@@ -1,0 +1,2 @@
+- name: Import Bootstrap USB disk boot
+  ansible.builtin.import_playbook: bootstrap_usb_disk_boot.yml

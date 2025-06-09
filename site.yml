@@ -1,0 +1,4 @@
+- name: Import Pi 3
+  ansible.builtin.import_playbook: pi3.yml
+- name: Import Pi 4
+  ansible.builtin.import_playbook: pi4.yml
