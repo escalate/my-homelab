@@ -1,4 +1,9 @@
 roles:
+  # https://galaxy.ansible.com/ui/standalone/roles/escalate/cmdline/
+  - name: cmdline
+    src: escalate.cmdline
+    version: v3.0.0
+
   # https://galaxy.ansible.com/ui/standalone/roles/escalate/common/
   - name: common
     src: escalate.common
