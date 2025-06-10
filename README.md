@@ -55,3 +55,7 @@ ssh pi3.local
 ```
 ssh pi4.local
 ```
+
+## License
+
+MIT
