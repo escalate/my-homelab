@@ -3,3 +3,5 @@
   roles:
     - role: cmdline
       tags: cmdline
+    - role: common
+      tags: common
