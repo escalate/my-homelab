@@ -13,3 +13,7 @@
       tags: locale
     - role: escalate.raspberry.systemd_timesyncd
       tags: timesyncd
+    - role: escalate.raspberry.ssh_login
+      tags: sshlogin
+    - role: escalate.raspberry.sshd
+      tags: sshd

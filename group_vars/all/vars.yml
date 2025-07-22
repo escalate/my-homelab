@@ -4,3 +4,9 @@ locale_languages:
   - en_US.UTF-8
 
 swap_enabled: false
+
+ssh_login_user: "{{ vault_ssh_login_user }}"
+ssh_login_public_key: "{{ vault_ssh_login_public_key }}"
+
+sshd_allow_users:
+  - "{{ vault_ssh_login_user }}"
