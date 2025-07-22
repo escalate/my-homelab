@@ -11,5 +11,5 @@
       tags: cron
     - role: escalate.raspberry.locale
       tags: locale
-    - role: escalate.raspberry.timesyncd
+    - role: escalate.raspberry.systemd_timesyncd
       tags: timesyncd
