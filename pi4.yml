@@ -1,7 +1,15 @@
 - name: Raspberry Pi 4
   hosts: pi4
   roles:
-    - role: cmdline
+    - role: escalate.raspberry.cmdline
       tags: cmdline
-    - role: common
+    - role: escalate.raspberry.common
       tags: common
+    - role: escalate.raspberry.swap
+      tags: swap
+    - role: escalate.raspberry.cron
+      tags: cron
+    - role: escalate.raspberry.locale
+      tags: locale
+    - role: escalate.raspberry.timesyncd
+      tags: timesyncd
