@@ -1,4 +1,4 @@
 collections:
   # https://galaxy.ansible.com/ui/repo/published/escalate/raspberry/
   - name: escalate.raspberry
-    version: 1.16.0
+    version: 1.17.0
